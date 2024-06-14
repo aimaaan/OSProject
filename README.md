@@ -97,7 +97,7 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 @joeynor ➜ /workspaces/OSProject (main) $ docker restart romantic_jackson
 ```
 
-7. Stop the container and delete the container. What happened to your helloworld.txt?
+7. Stop the container and delete the container. What happened to your helloworld.txt? __helloworld.txt also are been deleted as well__.
 
 ```bash 
 @joeynor ➜ /workspaces/OSProject (main) $ docker stop romantic_jackson
