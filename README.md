@@ -1,8 +1,8 @@
 # OSProject Running Containers for Application Development
 
-Group Name: __OS yeay__. 
+Group Name: __OS yeay__
 
-Section: __1__. 
+Section: __1__ 
 
 Team Mates:
 1. __Ahmad Arif Aiman bin Ahmad Fauzi__ and __2113419__
