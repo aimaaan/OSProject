@@ -9,10 +9,14 @@ Team Mates:
 2. __Nursyazira binti Mohd Naim__ and __2214076__
 3. __Fill name__ and __matric no__
 
+## Forking this OS project repository
+
 ***Questions:***
 
 1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __https://github.com/aimaaan/OSProject.git__.
 2. How many files and folders are in this repository. ***(1 mark)*** __1 files(README.md) and 1 folder(images)__.
+
+## Exploring github codespaces
 
 ***Questions:***
 
