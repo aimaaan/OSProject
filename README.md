@@ -6,7 +6,7 @@ Section: __1__
 
 Team Mates:
 1. __Ahmad Arif Aiman bin Ahmad Fauzi__ and __2113419__
-2. __Fill name__ and __matric no__
+2. __Nursyazira binti Mohd Naim__ and __2214076__
 3. __Fill name__ and __matric no__
 
 ***Questions:***
