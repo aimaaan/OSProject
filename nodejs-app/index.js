@@ -21,6 +21,11 @@ connection.connect((err) => {
   console.log('Connected to MySQL');
 });
 
+// Define a route to handle requests to the root URL
+app.get('/', (req, res) => {
+  res.send('Welcome to the Node.js and MySQL application!');
+});
+
 // Define a route to get a random row
 app.get('/random', (req, res) => {
   const query = 'SELECT * FROM mytable ORDER BY RAND() LIMIT 1';
