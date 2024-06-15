@@ -349,15 +349,76 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __error shows `Cannot GET /`  This error occurs because the Node.js container cannot resolve the hostname mysql-container. This happens because the Node.js container and MySQL container are on separate Docker networks (nodejsnet and mysqlnet), and containers on different networks cannot communicate with each other by default.__.
-2. Show the instruction needed to make this work. ***(1 mark)*** __To make the Node.js container communicate with the MySQL container, it need to bridge the two networks together. The instructions are as follow:
-- Create the Docker Networks
-- Run the MySQL Container on the mysqlnet Network
-- Set Up the Node.js Application
-- Build the Docker Image for the Node.js Application
-- Run the Node.js Container on the nodejsnet Network
-- Connect the Node.js Container to the mysqlnet Network
-- Ensure mytable is Populated__.
+1. What is the output of step 5 above, explain the error? ***(1 mark)*** __error shows `Cannot GET /`  This error occurs because the Node.js container cannot resolve the hostname mysql-container. This happens because the Node.js container and MySQL container are on separate Docker networks (nodejsnet and mysqlnet), and containers on different networks cannot communicate with each other by default. Furthermore, The error "Cannot GET /" typically means that the Node.js server is running, but there is no route defined to handle requests to the root URL ("/"). In the index.js file, the only defined route is /random. Therefore, when access http://localhost:3000/, the server doesn't know how to handle the request.__.
+2. Show the instruction needed to make this work. ***(1 mark)*** __To make the Node.js container communicate with the MySQL container, it need to bridge the two networks together and To fix cannot /get error, need to add a route to handle requests to the root URL in the index.js file. below are detailed instructions:__.
+
+- Updated the `index.js` file.
+```Js
+const express = require('express');
+const mysql = require('mysql');
+
+const app = express();
+const port = 3000;
+
+// Create a MySQL connection
+const connection = mysql.createConnection({
+  host: 'mysql-container',
+  user: 'myuser',
+  password: 'mypassword',
+  database: 'mydatabase'
+});
+
+// Connect to MySQL
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL');
+});
+
+// Define a route to handle requests to the root URL
+app.get('/', (req, res) => {
+  res.send('Welcome to the Node.js and MySQL application!');
+});
+
+// Define a route to get a random row
+app.get('/random', (req, res) => {
+  const query = 'SELECT * FROM mytable ORDER BY RAND() LIMIT 1';
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).send('Server Error');
+      return;
+    }
+    res.json(results[0]);
+  });
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+```
+The updated js file include the new route definition for the root URL('/') 
+then, update the and run the application again by rebuliding the docker image for the node.js application
+
+```bash
+docker build -t nodejs-app .
+```
+
+run the updated Node.js container
+```bash
+docker run --name nodejs-container --network nodejsnet -p 3000:3000 -d nodejs-app
+```
+
+and dont forget to bridge the network if not already done yet
+```bash
+docker network connect mysqlnet nodejs-container
+```
+
+lastly, test the setup again. when Access http://localhost:3000/ in browser. it should see the message "Welcome to the Node.js and MySQL application!".
+
 
 ## What to submit
 
