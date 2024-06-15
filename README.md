@@ -149,13 +149,16 @@ drwxr-xr-x+ 2 root      root      4096 Jun 15 04:40 myroot
 //use sudo and chown
 sudo chown -R codespace:codespace myroot
 ```
-*** 
-yes, 
+
+__yes, after execute above command it change the permission to codespace from root__
 ```bash @aimaaan ➜ /workspaces/OSProject/myroot (main) $ ls -la
 total 12
 drwxrwxrwx+ 3 codespace codespace 4096 Jun 15 04:40 .
 drwxrwxrwx+ 6 codespace root      4096 Jun 15 03:40 ..
-drwxr-xr-x+ 2 codespace codespace 4096 Jun 15 04:40 myroot```***
+drwxr-xr-x+ 2 codespace codespace 4096 Jun 15 04:40 myroot
+```
+
+***
 
 ## You are on your own, create your own static webpage
 
