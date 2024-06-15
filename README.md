@@ -349,10 +349,15 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __This error occurs because the Node.js container cannot resolve the hostname mysql-container. This happens because the Node.js container and MySQL container are on separate Docker networks (nodejsnet and mysqlnet), and containers on different networks cannot communicate with each other by default.__.
-2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
-
-
+1. What is the output of step 5 above, explain the error? ***(1 mark)*** __error shows `Cannot GET /`  This error occurs because the Node.js container cannot resolve the hostname mysql-container. This happens because the Node.js container and MySQL container are on separate Docker networks (nodejsnet and mysqlnet), and containers on different networks cannot communicate with each other by default.__.
+2. Show the instruction needed to make this work. ***(1 mark)*** __To make the Node.js container communicate with the MySQL container, it need to bridge the two networks together. The instructions are as follow:
+- Create the Docker Networks
+- Run the MySQL Container on the mysqlnet Network
+- Set Up the Node.js Application
+- Build the Docker Image for the Node.js Application
+- Run the Node.js Container on the nodejsnet Network
+- Connect the Node.js Container to the mysqlnet Network
+- Ensure mytable is Populated__.
 
 ## What to submit
 
