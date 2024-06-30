@@ -10,14 +10,20 @@ Team Mates:
 3. __Nur Raihan Syazwani binti Suhaimi__ and __2213262__
 4. __Khairul Najmi bin Khairul Azam__ and __2016671__
 
-## Forking this OS project repository
+The authors of the task are encased in square brackets as such: 
+- [aiman] refers to [Ahmad Arif Aiman bin Ahmad Fauzi](https://github.com/aimaaan)
+- [Syazira] refers to [Nursyazira binti Mohd Naim](https://github.com/syaziranaimm)
+- [Syazwani] refers to [Nur Raihan Syazwani binti Suhaimi](https://github.com/rhsyazwani)
+- [Najmi] refers to [Khairul Najmi bin Khairul Azam](https://github.com/jemiazam)
+
+## Forking this OS project repository [aiman]
 
 ***Questions:***
 
 1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __https://github.com/aimaaan/OSProject.git__.
 2. How many files and folders are in this repository. ***(1 mark)*** __1 files(README.md) and 1 folder(images)__.
 
-## Exploring github codespaces
+## Exploring github codespaces [aiman]
 
 ***Questions:***
 
@@ -368,7 +374,8 @@ Linux codespaces-d529be 6.5.0-1022-azure #23~22.04.1-Ubuntu SMP Thu May  9 17:59
 
 17. What is the top running process that consumes the most CPU cycles. ***(1 mark)***.
 <br><br>According to **top** command, the top running process that consumes the most CPU cycles is node which consumes 1.7%.<br><br>
-## Running your own container instance.
+
+## Running your own container instance. [aiman]
 
 1. At the terminal, run a linux instance. By typing the following command. 
 ```
@@ -429,7 +436,7 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 1. Are files in the container persistent. Why not?. ***(1 mark)*** __No, files in a container are not persistent by default because containers are designed to be temporary. When a container stops or is deleted, any changes to the files inside are lost. To keep data safe, you need to use volumes or bind mounts, which store data outside the container.__.
 2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Yes, you can run two or three instances of Debian Linux. Each instance can be a separate container, allowing you to run multiple isolated versions of Debian on the same system__.
 
-## Running your own container with persistent storage
+## Running your own container with persistent storage [aiman]
 
 1. In the previous experiment, you might have notice that containers are not persistent. To make storage persistent, you will need to mount them. 
 At the terminal, create a new directory called **myroot**, and run a instance of debian linux and mount myroot to the container. Find out the exact path of my root, and mount it as the root folder in the debian container. 
@@ -471,7 +478,7 @@ drwxr-xr-x+ 2 codespace codespace 4096 Jun 15 04:40 myroot
 
 ***
 
-## You are on your own, create your own static webpage
+## You are on your own, create your own static webpage [Syazwani]
 
 1. Create a directory called webpage in your host machine
 2. Inside the directory, create a page index.html, with any content you would like
@@ -503,7 +510,7 @@ drwxrwxrwx+ 2 root root 4096 Jun 15 06:16 /usr/local/apache2/htdocs
 3. What port is the apache web server running. ***(1 mark)*** __80__.
 4. What port is open for http protocol on the host machine? ***(1 mark)*** __8080__.
 
-## Create SUB Networks
+## Create SUB Networks [Syazira]
 
 1. In docker, you can create your own private networks where you can run multiple services, in this part, we will create two networks, one called bluenet and the other is rednet
 2. Run the docker create network to create you networks like the ones below
@@ -544,7 +551,7 @@ Run 'docker network COMMAND --help' for more information on a command.
 ```bash
 ping: bad address 'c2'
 ```
-## Bridging two SUB Networks
+## Bridging two SUB Networks [Syazira]
 1. Let's try this again by creating a network to bridge the two containers in the two subnetworks
 ```
 docker network create bridgenet
@@ -561,7 +568,7 @@ docker exec c1 ping c2
 
 2. What is different from the previous ping in the section above? ***(1 mark)*** __The first ping failed because failure occurred because c1 and c2 were on separate networks (bluenet and rednet), preventing them from communicating with each other directly. In the current setup, by creating the bridgenet network and connecting both containers (c1 and c2) to it, a common network is established that allows them to see each other and communicate__.
 
-## Intermediate Level (10 marks bonus)
+## Intermediate Level (10 marks bonus) [aiman]
 
 ### Node.js and MySQL in Docker Containers
 
